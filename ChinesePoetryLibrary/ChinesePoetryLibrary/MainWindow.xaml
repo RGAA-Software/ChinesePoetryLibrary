@@ -21,7 +21,7 @@
     -->
     <Grid Background="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="36"/>
+            <RowDefinition Height="40"/>
             <RowDefinition />
         </Grid.RowDefinitions>
         
@@ -31,10 +31,15 @@
                     paints the area under the caption control buttons (for transparent buttons). -->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition x:Name="LeftPaddingColumn" Width="0"/>
-                <ColumnDefinition/>
+                <ColumnDefinition x:Name="IconColumn" Width="Auto"/>
+                <ColumnDefinition x:Name="TitleColumn" Width="Auto"/>
+                <ColumnDefinition x:Name="LeftDragColumn" Width="*"/>
+                <ColumnDefinition x:Name="SearchColumn" Width="4*" MinWidth="220"/>
+                <ColumnDefinition x:Name="RightDragColumn" Width="*" MinWidth="48"/>
+                <ColumnDefinition x:Name="AccountColumn" Width="Auto"/>
                 <ColumnDefinition x:Name="RightPaddingColumn" Width="0"/>
             </Grid.ColumnDefinitions>
-            <Image Source="Assets/WindowIcon.png" 
+            <Image Source="Assets/bc_icon.png" 
                Grid.Column="1"
                HorizontalAlignment="Left"
                Width="16" Height="16"
@@ -44,7 +49,18 @@
                Style="{StaticResource CaptionTextBlockStyle}" 
                Grid.Column="1"
                VerticalAlignment="Center"
-               Margin="28,0,0,0"/>
+               Margin="30,0,0,0"/>
+
+            <AutoSuggestBox x:Name="TitleBarSearchBox" 
+                    Grid.Column="4" 
+                    QueryIcon="Find"
+                    PlaceholderText="Search"
+                    VerticalAlignment="Center"
+                    MaxWidth="400"/>
+            <PersonPicture x:Name="PersonPic" 
+                   Grid.Column="6" 
+                   Height="32" Margin="0,0,16,0"/>
+
         </Grid>
 
         <!--https://learn.microsoft.com/en-us/windows/apps/design/style/segoe-ui-symbol-font-->
@@ -59,13 +75,29 @@
             <NavigationView.MenuItems>
                 <NavigationViewItem Icon="AllApps" Content="分类" Tag="Classification" Height="46"/>
                 <NavigationViewItem Icon="People" Content="作者" Tag="Author" x:Name="NavItemAuthor" Height="46"/>
-                <NavigationViewItem Icon="Pin" Content="名言" Tag="Witticism" Height="46"/>
+                <NavigationViewItem Content="名言" Tag="Witticism" Height="46">
+                    <NavigationViewItem.Icon>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE840;"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
                 <NavigationViewItem Content="书画" Tag="Picture" Height="46">
                     <NavigationViewItem.Icon>
                         <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE790;"/>
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
 
+                <NavigationViewItem Content="搜索" Tag="Search" Height="46">
+                    <NavigationViewItem.Icon>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE71E;"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+
+                <NavigationViewItem Content="收藏" Tag="Favorite" Height="46">
+                    <NavigationViewItem.Icon>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xEB51;"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                
             </NavigationView.MenuItems>
 
             <Frame x:Name="ContentFrame" Background="White" Visibility="Visible"/>

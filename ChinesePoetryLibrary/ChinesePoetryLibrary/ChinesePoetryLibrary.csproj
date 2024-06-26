@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
@@ -19,7 +19,9 @@
   <ItemGroup>
     <None Remove="Pages\Author.xaml" />
     <None Remove="Pages\Classification.xaml" />
+    <None Remove="Pages\Favorite.xaml" />
     <None Remove="Pages\Picture.xaml" />
+    <None Remove="Pages\Search.xaml" />
     <None Remove="Pages\Settings.xaml" />
     <None Remove="Pages\Witticism.xaml" />
   </ItemGroup>
@@ -57,6 +59,20 @@
 
   <ItemGroup>
     <Page Update="Pages\Author.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <CustomAdditionalCompileInputs Remove="Pages\Search.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Remove="Pages\Search.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Pages\Favorite.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>

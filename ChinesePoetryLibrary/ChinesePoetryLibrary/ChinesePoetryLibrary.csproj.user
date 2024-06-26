@@ -8,7 +8,13 @@
     <None Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </None>
+    <Page Update="Pages\Favorite.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Pages\Picture.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Search.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Pages\Settings.xaml">
